@@ -4,10 +4,10 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
   computed: {
-    ...mapState(['username']),
+    ...mapState('profile', ['username']),
   },
   methods: {
-    ...mapActions(['updateUsername', 'randomUsername'])
+    ...mapActions('profile', ['updateUsername', 'randomUsername'])
   }
 }
 </script>
