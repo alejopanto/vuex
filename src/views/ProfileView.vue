@@ -1,5 +1,5 @@
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 
 
 export default {
@@ -7,7 +7,7 @@ export default {
     ...mapState(['username']),
   },
   methods: {
-    ...mapMutations(['updateUsername'])
+    ...mapActions(['updateUsername', 'randomUsername'])
   }
 }
 </script>
@@ -23,6 +23,7 @@ export default {
         :value="username" 
         @input="updateUsername($event.target.value)"
       />
+      <button style="background-color: blue;" @click="randomUsername()">Random</button>
       <button @click="$router.push('/')">Acceder</button>
     </div>
   </div>
