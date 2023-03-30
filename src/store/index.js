@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import { COMMIT_UPDATE_USERNAME } from '../common/mutations-types'
 
 const store = createStore({
     state() {
@@ -12,7 +13,7 @@ const store = createStore({
         }
     },
     mutations: {
-        updateUsername(state, username) {
+        [COMMIT_UPDATE_USERNAME](state, username) {
             state.username = username
         }
     },
@@ -27,7 +28,7 @@ const store = createStore({
             //Un numero aleatorio del 0 al 9
             const n = Math.floor(Math.random() * (9 - 0 + 1) + 0);
             console.log(data);
-            commit("updateUsername", data[n]);
+            commit(COMMIT_UPDATE_USERNAME, data[n]);
         }
     }
 })
