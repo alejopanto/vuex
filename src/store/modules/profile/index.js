@@ -1,9 +1,9 @@
-import { COMMIT_UPDATE_USERNAME } from '@/common/mutations-types'
+import { COMMIT_UPDATE_USERNAME, COMMIT_SET_STATUS} from '@/common/mutations-types'
 
 const module = {
     state() {
         return {
-            username: 'Jose.Pantoja'
+            username: ''
         }
     },
     getters: {
@@ -17,8 +17,13 @@ const module = {
         }
     },
     actions: {
-        updateUsername({commit, state}, username) {
-            console.log(state)
+        updateUsername({commit, state, rootState}, username) {
+            //console.log(state)
+            
+            if (state.username) {
+                commit(COMMIT_SET_STATUS, 'active', {root: true})
+            }
+
             commit('updateUsername', username)
         },
         async randomUsername({ commit }) {
@@ -26,7 +31,7 @@ const module = {
             const data = await res.json();
             //Un numero aleatorio del 0 al 9
             const n = Math.floor(Math.random() * (9 - 0 + 1) + 0);
-            console.log(data);
+            //console.log(data);
             commit(COMMIT_UPDATE_USERNAME, data[n]);
         }
     },

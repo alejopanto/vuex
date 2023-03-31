@@ -32,8 +32,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['username']),
-    ...mapGetters(['firstName'])
+    ...mapState(['status']),
+    ...mapGetters('profile', ['firstName'])
   }
 
 }
@@ -46,7 +46,7 @@ export default {
     <ProfileCard
       :avatar="profile.avatar"
       :username="firstName('-')"
-      :status="profile.status"
+      :status="status"
     />
     <RouterLink to="/" class="channels-title">Canales <Icon icon="carbon:hashtag" /></RouterLink>
     <div class="channels">
