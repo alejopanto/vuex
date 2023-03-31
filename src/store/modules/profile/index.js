@@ -20,11 +20,12 @@ const module = {
         updateUsername({commit, state, rootState}, username) {
             //console.log(state)
             
+            commit('updateUsername', username)
+            
             if (state.username) {
                 commit(COMMIT_SET_STATUS, 'active', {root: true})
+                //console.log(rootState.status)
             }
-
-            commit('updateUsername', username)
         },
         async randomUsername({ commit }) {
             const res = await fetch(`https://api.generadordni.es/v2/person/username`);
