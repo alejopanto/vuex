@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import profile from '@/store/modules/profile'
+import channels from '@/store/modules/channels'
 import {COMMIT_SET_STATUS} from '@/common/mutations-types'
 
 const store = createStore({
@@ -20,7 +21,8 @@ const store = createStore({
     actions: {},
 
     modules: {
-        profile
+        profile,
+        channels
     }
 })
 
