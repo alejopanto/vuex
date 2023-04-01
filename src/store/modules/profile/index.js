@@ -3,7 +3,13 @@ import { COMMIT_UPDATE_USERNAME, COMMIT_SET_STATUS} from '@/common/mutations-typ
 const module = {
     state() {
         return {
-            username: ''
+            id: 1,
+            username: '',
+            details: {
+                id: 1,
+                name: 'Alejandro Panto',
+                avatar: '/avatars/avatar.jpg'
+            }
         }
     },
     getters: {

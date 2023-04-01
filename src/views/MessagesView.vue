@@ -12,17 +12,16 @@ export default {
       title: 'Nombre del canal',
       people: [
         { id: 1, name: 'Tú', avatar: '/avatars/avatar.jpg' },
-        { id: 2, name: 'Jason', avatar: '/avatars/avatar-02.jpg' },
-        { id: 3, name: 'Janet', avatar: '/avatars/avatar-03.jpg' }
       ],
     }
   },
   computed: {
     ...mapGetters('messages', ['getMesagges']),
+    ...mapGetters('contacts', ['getContactById']),
 
     messagesView() {
       return this.getMesagges(this.channelId)?.map((message) => {
-        const author = this.people.find((p) => p.id === message.author)
+        const author = this.getContactById(message.author)
         if (!author) return message;
         return {
           ...message,
